@@ -1,10 +1,7 @@
 import { createInterface } from 'readline';
 import { homedir } from 'os';
-import { up, cd, ls, cat, add, rn, cp, mv, rm, os} from './commands/index.js';
-
-const addMessage = async (isFail, currentDir) => {
-  !isFail && console.log(`You are currently in \x1b[33m${currentDir}\x1b[0m`);
-}
+import { up, cd, ls, cat, add, rn, cp, mv, rm, os, calculateHash} from './commands/index.js';
+import {addMessage} from './utils/index.js'
 
 const arg = process.argv[2];
 export let currentDir = homedir();
@@ -68,6 +65,10 @@ function startFileManager (arg) {
       case 'os': 
         isFail = true
         isFail = await os(data, isFail)
+        break;
+      case 'hash': 
+        isFail = true
+        isFail = await calculateHash(currentDir, data, isFail);
         break;
       default: 
         isFail = true

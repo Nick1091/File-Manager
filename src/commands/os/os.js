@@ -8,7 +8,7 @@ export const os = async ([data], isFail) => {
     case '--cpus': 
       const cpusArr = cpus().map((cpu)=> {
         const { model, speed } = cpu;
-        return { model, speed: speed / 1000 }
+        return { model, speed: speed / 1000 + ' GHz' }
       })
       console.log(cpusArr)
       isFail = false;
