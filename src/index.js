@@ -1,8 +1,8 @@
 import { createInterface } from 'readline';
 import { homedir } from 'os';
-import { up, cd, ls, cat, add, rn, cp, mv, rm } from './commands/index.js';
+import { up, cd, ls, cat, add, rn, cp, mv, rm, os} from './commands/index.js';
 
-const addMessage = async (isFail) => {
+const addMessage = async (isFail, currentDir) => {
   !isFail && console.log(`You are currently in \x1b[33m${currentDir}\x1b[0m`);
 }
 
@@ -65,11 +65,15 @@ function startFileManager (arg) {
         isFail = true
         isFail = await mv(currentDir, data, isFail);
         break;
+      case 'os': 
+        isFail = true
+        isFail = await os(data, isFail)
+        break;
       default: 
         isFail = true
         console.log('\x1b[31mInvalid input\x1b[0m')
     }
-    await addMessage(isFail)
+    await addMessage(isFail, currentDir);
   })
   .on('close', () => console.log(`\x1b[35mThank you for using File Manager, ${name}!\x1b[0m`))
 }
