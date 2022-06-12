@@ -21,12 +21,11 @@ export const mv = async (currentDir , [currentFile, targetDirectory, ...rest], i
         (err) => {
           if(err) console.log('\x1b[31mOperation failed\x1b[0m');
           if(err) isFail = true;
-          resolve(isFail);
         }
       )
-      rs.on('end', () => {
+      rs.on('end', async () => {
         ws.close();
-        rm(currentDir, currentFile, isFail)
+        isFail = await rm(currentDir, [currentFile], isFail)
         resolve(isFail);
       });
     }

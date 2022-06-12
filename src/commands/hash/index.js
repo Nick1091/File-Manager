@@ -15,7 +15,7 @@ export const calculateHash = async (currentDir , [pathToFile], isFail) => {
         resolve(isFail = true)
       });
       rs.on('end', () => {
-        console.log(hash.digest('hex'))
+        console.log(`\x1b[32m${hash.digest('hex')}\x1b[0m`)
         resolve(isFail)
       })
     })

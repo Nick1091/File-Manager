@@ -2,7 +2,7 @@ import { EOL, cpus, homedir, userInfo, arch } from 'os'
 export const os = async ([data], isFail) => {
   switch(data){
     case '--EOL': 
-      console.log(JSON.stringify(EOL));;
+      console.log(`\x1b[32m${JSON.stringify(EOL)}\x1b[0m`);;
       isFail = false;
       break;
     case '--cpus': 
