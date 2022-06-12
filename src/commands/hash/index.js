@@ -1,6 +1,6 @@
 import path from 'path'
 import { createHash } from 'crypto';
-import { createReadStream, rmSync } from "fs";
+import { createReadStream } from "fs";
 
 export const calculateHash = async (currentDir , [pathToFile], isFail) => {
   try{

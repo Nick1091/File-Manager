@@ -1,7 +1,7 @@
 import { createInterface } from 'readline';
 import { homedir } from 'os';
-import { up, cd, ls, cat, add, rn, cp, mv, rm, os, calculateHash} from './commands/index.js';
-import {addMessage} from './utils/index.js'
+import { up, cd, ls, cat, add, rn, cp, mv, rm, os, calculateHash, compress, decompress} from './commands/index.js';
+import {addMessage, getTransformArray} from './utils/index.js'
 
 const arg = process.argv[2];
 export let currentDir = homedir();
@@ -20,7 +20,8 @@ function startFileManager (arg) {
   });
   let isFail = true;
   rl.on("line", async (line) => {
-    const [command, ...data] = line.trim().split(' ').map((arg) => arg.trim());
+    const arr = await getTransformArray(line)
+    const [command, ...data] = arr.map((arg) => arg.trim());
     switch (command) {
       case '.exit': 
       case 'exit': 
@@ -69,6 +70,14 @@ function startFileManager (arg) {
       case 'hash': 
         isFail = true
         isFail = await calculateHash(currentDir, data, isFail);
+        break;
+      case 'compress': 
+        isFail = true
+        isFail = await compress(currentDir, data, isFail);
+        break;
+      case 'decompress': 
+        isFail = true
+        isFail = await decompress(currentDir, data, isFail);
         break;
       default: 
         isFail = true
