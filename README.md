@@ -1,3 +1,4 @@
+# 1 коммит сделан после дедлайна для правок в READMI.MD, что не запрещено(смотри ниже)
 # File-Manager
 >run App:  
 ```npm run start -- --username=your_username```                                          
@@ -5,6 +6,9 @@ or
 ```npm run start --- --username=your_username```
 __________________________________________
 ## List of operations and their syntax:
+###Forfeits
+- **-95% of total task score** Any external tools/libraries are used
+- **-30% of total task score** Commits after deadline (except commits that affect only `Readme.md`, `.gitignore`, etc.)
 ### Navigation & working directory (nwd):
 - Go upper from current directory:  ```up```;
 - Go to dedicated folder from current directory:  ```cd some_directory```; ```cd "some directory"```;
@@ -25,6 +29,5 @@ __________________________________________
 ### Hash calculation
 - Calculate hash for file: ```hash path_to_file```; ```hash "path to file"```
 ### Compress and decompress operations
-- Compress file (using Brotli algorithm): ```compress path_to_file path_to_destination```; ```compress "path to file" "path to destination"```
-- Decompress file (using Brotli algorithm): ```decompress path_to_file path_to_destination```; ```decompress "path to file" "path to destination"```
-
+- Compress file (using Brotli algorithm): ```compress path_to_file/text.txt path_to_destination/text.txt.br```; ```compress "path to file/text.txt" "path to destination/text.txt.br"```
+- Decompress file (using Brotli algorithm): ```decompress path_to_file/text.txt.br path_to_destination/text.txt```; ```decompress "path to file/text.txt.br" "path to destination/text.txt"```
