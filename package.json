@@ -1,0 +1,22 @@
+{
+  "name": "file-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nick1091/File-Manager.git"
+  },
+  "keywords": [],
+  "author": "Nick1091",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nick1091/File-Manager/issues"
+  },
+  "homepage": "https://github.com/Nick1091/File-Manager#readme"
+}
